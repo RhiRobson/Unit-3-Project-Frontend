@@ -16,7 +16,8 @@ const NavBar = () => {
       {user ? (
         <ul>
           <li>Welcome, {user.username}</li>
-          <li><Link to='/'>Motivation</Link></li>
+          <li><Link to='/'>My Motivation</Link></li>
+          <li><Link to='/goals'>My Goals</Link></li>
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
         </ul>
       ) : (
