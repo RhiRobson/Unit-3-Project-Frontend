@@ -130,6 +130,22 @@ const index = async () => {
     }
   };
 
+  const updateComment = async (goalId, commentId, commentFormData) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${goalId}/comments/${commentId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(commentFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   export { 
     index,
@@ -141,5 +157,6 @@ const index = async () => {
     updateGoal,
     deleteComment,
     deleteInformation,
+    updateComment,
   };
 

@@ -103,7 +103,7 @@ const GoalDetails = (props) => {
                      ${new Date(comment.createdAt).toLocaleDateString('en-GB')}`}
                     </p>
                     <>
-                    <Link to={`/goals.comment/${comment._id}/edit`}><button><p>Edit</p></button></Link>
+                    <Link to={`/goals/${goalId}/comments/${comment._id}/edit`}><button><p>Edit</p></button></Link>
                     <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
                     </>
                 </header>

@@ -10,6 +10,8 @@ import Motivation from './components/Motivation/Motivation';
 import GoalList from './components/GoalList/GoalList';
 import GoalDetails from './components/GoalDetails/GoalDetails';
 import GoalForm from './components/GoalForm/GoalForm';
+import CommentForm from './components/CommentForm/CommentForm';
+
 import * as goalService from './services/goalService';
 
 
@@ -66,6 +68,9 @@ const App = () => {
             <Route
               path='/goals/:goalId/edit'
               element={<GoalForm handleUpdateGoal={handleUpdateGoal}/>}/>
+            <Route
+              path='/goals/:goalId/comments/:commentId/edit'
+              element={<CommentForm />}/>
           </>
         ) : (
           <>
