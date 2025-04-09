@@ -84,6 +84,52 @@ const index = async () => {
     }
   };
 
+  async function updateGoal(goalId, goalFormData) {
+    try {
+      const res = await fetch(`${BASE_URL}/${goalId}`, {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(goalFormData),
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const deleteComment = async (goalId, commentId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${goalId}/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteInformation = async (goalId, informationId) => {
+    try {
+      const res = await fetch(`${BASE_URL}/${goalId}/information/${informationId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      return res.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   export { 
     index,
@@ -91,6 +137,9 @@ const index = async () => {
     create,
     createComment,
     createInformation,
-    deleteGoal
+    deleteGoal,
+    updateGoal,
+    deleteComment,
+    deleteInformation,
   };
 

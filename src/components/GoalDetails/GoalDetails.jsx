@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router';
+import { useParams, Link } from 'react-router';
 import * as goalService from '../../services/goalService';
 import CommentForm from '../CommentForm/CommentForm';
 import InformationForm from '../InformationForm/InformationForm';
@@ -30,6 +30,26 @@ const GoalDetails = (props) => {
     const newInformation = await goalService.createInformation(goalId, informationFormData);
     setGoal({ ...goal, information: [...goal.information, newInformation] });
   };
+
+  const handleDeleteComment = async (commentId) => {
+    const confirmDeleteComment = window.confirm("Are you sure you want to delete this comment?");
+    if (confirmDeleteComment) {
+    const deletedComment= await goalService.deleteComment(goalId, commentId);
+    setGoal({
+      ...goal,
+      comments: goal.comments.filter((comment) => comment._id !== commentId),
+    })};
+  };
+
+  const handleDeleteInformation = async (informationId) => {
+    const confirmDeleteInformation = window.confirm("Are you sure you want to delete this update?");
+    if (confirmDeleteInformation) {
+    const deletedInformation= await goalService.deleteInformation(goalId, informationId);
+    setGoal({
+      ...goal,
+      information: goal.information.filter((information) => information._id !== informationId),
+    })};
+  };
   
   if (!goal) return <main>Loading...</main>;
 
@@ -44,13 +64,15 @@ const GoalDetails = (props) => {
             </p>
             {goal.author._id === user._id && (
               <>
-                <button onClick={() => props.handleDeleteGoal(goalId)}>
+              <Link to={`/goals/${goalId}/edit`}><button><p>Edit</p></button></Link>
+              <button onClick={() => props.handleDeleteGoal(goalId)}>
               Delete</button>
               </>
             )}
           </header>
-
+          <section>
           <p>{goal.startingDetails}</p>
+          </section>
 
           <p>Work out how to show picture</p>
           
@@ -58,17 +80,16 @@ const GoalDetails = (props) => {
         <section>
           <h2>Updates</h2>
           <InformationForm handleAddInformation={handleAddInformation}/>
+            {goal.information.map((information) => (
+              <article key={information._id}>
                 {!goal.information.length && <p>There are no updates.</p>}
-                {goal.information.map((information) => (
-                <article key={information._id}>
-                    <header>
-                        <p>
-                          "Update posted on {new Date(information.createdAt).toLocaleDateString('en-GB')}`
-                        </p>
+                <p>{information.text}</p>
+                  <header>
+                    <p>"Update posted on {new Date(information.createdAt).toLocaleDateString('en-GB')}`</p>
+                      <button onClick={() => handleDeleteInformation(information._id)}>Delete</button>
                     </header>
-                     <p>{information.text}</p>
                 </article>
-             ))}
+            ))}
         </section>
         <section>
         <h2>Comments</h2>
@@ -81,7 +102,12 @@ const GoalDetails = (props) => {
                      {`${comment.author.username} posted on
                      ${new Date(comment.createdAt).toLocaleDateString('en-GB')}`}
                     </p>
+                    <>
+                    <Link to={`/goals.comment/${comment._id}/edit`}><button><p>Edit</p></button></Link>
+                    <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
+                    </>
                 </header>
+                {!goal.comments.length && <p>There are no comments.</p>}
                 <p>{comment.text}</p>
             </article>
         ))}
@@ -91,4 +117,3 @@ const GoalDetails = (props) => {
 };
 
   export default GoalDetails
-  

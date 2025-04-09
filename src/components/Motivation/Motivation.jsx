@@ -12,7 +12,7 @@ const Motivation = () => {
         const fetchedUsers = await userService.index();
         console.log(fetchedUsers);
       } catch (err) {
-        console.log(err)
+        //console.log(err)
       }
     }
     if (user) fetchUsers();

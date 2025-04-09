@@ -20,15 +20,25 @@ const App = () => {
   const navigate = useNavigate();
 
   const handleDeleteGoal = async (goalId) => {
-    const deletedGoal = await goalService.deleteGoal(goalId);
-    setGoals(goals.filter((goal) => goal._id !== goalId));
-    navigate('/goals');
+    const confirmDelete = window.confirm("Are you sure you want to delete this goal?");
+    
+    if (confirmDelete) {
+      const deletedGoal = await goalService.deleteGoal(goalId);
+      setGoals(goals.filter((goal) => goal._id !== goalId));
+      navigate('/goals');
+    }
   };
 
   const handleAddGoal = async (goalFormData) => {
     const newGoal = await goalService.create(goalFormData);
     setGoals([newGoal, ...goals]);
     navigate('/goals');
+  };
+
+  const handleUpdateGoal = async (goalId, goalFormData) => {
+    const updatedGoal = await goalService.updateGoal(goalId, goalFormData);
+    setGoals(goals.map((goal) => (goalId === goal._id ? updatedGoal : goal)));
+    navigate(`/goals/${goalId}`);
   };
 
   useEffect(() => {
@@ -47,13 +57,15 @@ const App = () => {
       {user ? (
           <>
             <Route path='/goals' element={<GoalList goals={goals}/>} />
-            <Route path='/goals/:goalId' element={<GoalDetails />} />
-            <Route path='/goals/new' 
-                   element={<GoalForm handleAddGoal={handleAddGoal} />}/>
             <Route 
-    path='/goals/:goalId'
-    element={<GoalDetails handleDeleteGoal={handleDeleteGoal} />}
-/>
+              path='/goals/:goalId'
+              element={<GoalDetails handleDeleteGoal={handleDeleteGoal} />}/>
+            <Route 
+              path='/goals/new' 
+              element={<GoalForm handleAddGoal={handleAddGoal} />}/>
+            <Route
+              path='/goals/:goalId/edit'
+              element={<GoalForm handleUpdateGoal={handleUpdateGoal}/>}/>
           </>
         ) : (
           <>

@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+
+import * as goalService from '../../services/goalService';
 
 const GoalForm = (props) => {
+  const { goalId } = useParams();
   const [formData, setFormData] = useState({
     title: '',
     startingDetails: '',
@@ -13,11 +17,25 @@ const GoalForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddGoal(formData);
+    if (goalId) {
+      props.handleUpdateGoal(goalId, formData);
+    } else {
+      props.handleAddGoal(formData);
+    }
   };
+
+  useEffect(() => {
+    const fetchGoal = async () => {
+      const goalData = await goalService.show(goalId);
+      setFormData(goalData);
+    };
+    if (goalId) fetchGoal();
+    return () => setFormData({ title: '', startingDetails: '', picture: '' });
+  }, [goalId]);
 
   return (
     <main>
+       <h1>{goalId ? 'Edit Goal' : 'New Goal'}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title-input'>Give your goal a name, stay accountable.</label>
         <input
