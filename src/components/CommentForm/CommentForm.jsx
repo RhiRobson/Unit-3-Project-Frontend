@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
+import styles from './CommentForm.module.css';
 
 import * as goalService from '../../services/goalService';
 
@@ -24,7 +25,7 @@ const CommentForm = (props) => {
     setFormData({ text: '' });
   };
 
-
+  
   useEffect(() => {
     const fetchGoal = async () => {
       const goalData = await goalService.show(goalId);
@@ -33,9 +34,25 @@ const CommentForm = (props) => {
     if (goalId && commentId) fetchGoal();
   }, [goalId, commentId]);
 
+  
+    if (goalId && commentId) return (
+      <main className={styles.container}>
+       <form onSubmit={handleSubmit}>
+      <label htmlFor='text-input'>Your comment:</label>
+      <textarea
+        required
+        type='text'
+        name='text'
+        id='text-input'
+        value={formData.text}
+        onChange={handleChange}
+      />
+      <button type='submit'>Send Motivation!</button>
+    </form>
+      </main>
+    );
 
-
-  return (
+    return (
     <form onSubmit={handleSubmit}>
       <label htmlFor='text-input'>Your comment:</label>
       <textarea

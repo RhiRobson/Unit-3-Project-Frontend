@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 
 import { signUp } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
+import Logo from '../../../images/Logo.jpg';
+import styles from './SignUpForm.module.css';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -37,7 +39,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
+    <main className={styles.container}>
+      <section>
+      <img src={Logo} alt='Go Getters Logo' />
+      </section>
+      <section>
       <h1>Sign Up</h1>
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
@@ -79,6 +85,7 @@ const SignUpForm = () => {
           <button onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
+      </section>
     </main>
   );
 };

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
+import styles from './GoalForm.module.css'
 
 import * as goalService from '../../services/goalService';
 
@@ -34,7 +35,7 @@ const GoalForm = (props) => {
   }, [goalId]);
 
   return (
-    <main>
+    <main className={styles.container}>
        <h1>{goalId ? 'Edit Goal' : 'New Goal'}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title-input'>Give your goal a name, stay accountable.</label>
