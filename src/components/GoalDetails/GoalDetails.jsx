@@ -79,6 +79,7 @@ const GoalDetails = (props) => {
             )}
           </div>
         </header>
+        <p>{goal.startingDetails}</p>
         <img
           src={goal.picture}
           alt="Goal"
