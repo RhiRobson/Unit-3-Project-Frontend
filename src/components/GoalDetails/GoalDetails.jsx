@@ -79,9 +79,13 @@ const GoalDetails = (props) => {
             )}
           </div>
         </header>
-        <p>{goal.startingDetails}</p>
+        <img
+          src={goal.picture}
+          alt="Goal"
+          className={styles.goalImage}
+          onError={(e) => (e.target.style.display = 'none')}
+        />
       </section>
-
 
       <section>
         <h2>Updates</h2>
