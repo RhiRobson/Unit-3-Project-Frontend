@@ -68,15 +68,18 @@ const GoalDetails = (props) => {
             {goal.author._id === user._id && (
               <>
                 <div className="button-group">
-                  <Link to={`/goals/${goalId}/edit`}><p>Edit</p></Link>
-                  <button onClick={() => props.handleDeleteGoal(goalId)}>Delete</button>
+                  <Link to={`/goals/${goalId}/edit`} className="button">
+                    Edit
+                  </Link>
+                  <button className="button" onClick={() => props.handleDeleteGoal(goalId)}>
+                    Delete
+                  </button>
                 </div>
               </>
             )}
           </div>
         </header>
         <p>{goal.startingDetails}</p>
-        <p>Work out how to show picture</p>
       </section>
 
 

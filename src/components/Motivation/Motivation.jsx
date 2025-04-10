@@ -24,14 +24,15 @@ const Motivation = (props) => {
 
   return (
     <main className={styles.container}>
+      <div>
       <h1>Welcome, {user.username}</h1>
       <br />
       <h3>
         This is your Motivational Wall where you can see all of your goals.
         <br />
-        <br />
         Use the comments to help build the community and push yourself!
       </h3>
+      </div>
       {props.goals
         .filter(goal => goal.author._id === user._id)
         .map((goal) => (

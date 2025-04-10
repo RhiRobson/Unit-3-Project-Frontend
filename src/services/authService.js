@@ -51,6 +51,7 @@ const signIn = async (formData) => {
 };
 
 export {
-  signUp, signIn,
+  signUp, 
+  signIn,
 };
 

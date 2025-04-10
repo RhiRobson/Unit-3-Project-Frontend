@@ -29,10 +29,10 @@ const Landing = () => {
           <article>
             <header>
               <h4>Ben Manley</h4>
-              <p>Teacher - training to swim the Channel</p>
+              <p>Teacher - training to swim the English Channel</p>
             </header>
             <p>
-              example example example
+            “Go Getters completely changed the way I approach my fitness journey. Setting goals is easy, but staying motivated was always the hard part — until now. Seeing others push through their challenges and getting encouraging comments on my own progress keeps me going every day. It’s like having a gym buddy in your pocket!”
             </p>
             <footer>
             </footer>

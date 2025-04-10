@@ -35,12 +35,47 @@
   color: #f97316;
 }
 
-@media only screen and (max-width: 414px) {
+.container div {
+  display: none;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.25rem;
+  height: 2rem;
+}
+
+.container div span {
+  height: 0.4rem;
+  width: 100%;
+  background-color: #f97316;
+  border-radius: 0.2rem;
+
+}
+
+@media only screen and (max-width: 530px) {
+
+  .container div {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: start;
+    background-color: #312e81;
+  }
+
+  .container div.open {
+    display: flex;
+  }
+
   .container ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0.25rem;
     padding-left: 0px;
   }
 
-  .container li {
-    font-size: 15px;
-  }
 }

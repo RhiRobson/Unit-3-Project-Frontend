@@ -44,9 +44,10 @@ const SignUpForm = () => {
         <img src={Logo} alt='Go Getters Logo' />
       </section>
       <section>
+        
+        <form onSubmit={handleSubmit}>
         <h1>Sign Up</h1>
         <p>{message}</p>
-        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor='username'>Username:</label>
             <input
