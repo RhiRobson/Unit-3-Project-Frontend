@@ -67,8 +67,10 @@ const GoalDetails = (props) => {
           <div>
             {goal.author._id === user._id && (
               <>
-                <Link to={`/goals/${goalId}/edit`}><p>Edit</p></Link>
-                <button onClick={() => props.handleDeleteGoal(goalId)}>Delete</button>
+                <div className="button-group">
+                  <Link to={`/goals/${goalId}/edit`}><p>Edit</p></Link>
+                  <button onClick={() => props.handleDeleteGoal(goalId)}>Delete</button>
+                </div>
               </>
             )}
           </div>
@@ -80,7 +82,10 @@ const GoalDetails = (props) => {
 
       <section>
         <h2>Updates</h2>
-        <InformationForm handleAddInformation={handleAddInformation} />
+
+        {goal.author._id === user._id && (
+          <InformationForm handleAddInformation={handleAddInformation} />
+        )}
         {goal.information.length === 0 ? (
           <p>There are no updates.</p>
         ) : (
@@ -96,9 +101,11 @@ const GoalDetails = (props) => {
                   <br />
                   <br />
                   {goal.author._id === user._id && (
-                    <button onClick={() => handleDeleteInformation(information._id)}>
-                      Delete
-                    </button>
+                    <>
+                      <button onClick={() => handleDeleteInformation(information._id)}>
+                        Delete
+                      </button>
+                    </>
                   )}
                 </div>
               </header>
@@ -111,20 +118,28 @@ const GoalDetails = (props) => {
 
       <section>
         <h2>Comments</h2>
+
         <CommentForm handleAddComment={handleAddComment} />
+
         {!goal.comments.length && <p>There are no comments.</p>}
+
         {goal.comments.map((comment) => (
           <article key={comment._id}>
             <header>
               <p>
                 {`${comment.author.username} posted on
-               ${new Date(comment.createdAt).toLocaleDateString('en-GB')}`}
+          ${new Date(comment.createdAt).toLocaleDateString()}`}
               </p>
 
-              {goal.author._id === comment.author._id && (
+              {comment.author._id === user._id && (
                 <>
-                  <Link to={`/goals/${goalId}/comments/${comment._id}/edit`}><p>Edit</p></Link>
-                  <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
+                  <Link to={`/goals/${goal._id}/comments/${comment._id}/edit`}>
+                    Edit
+                  </Link>
+
+                  <button onClick={() => handleDeleteComment(comment._id)}>
+                    Delete
+                  </button>
                 </>
               )}
             </header>

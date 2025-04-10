@@ -14,7 +14,6 @@ const Motivation = (props) => {
     const fetchUsers = async () => {
       try {
         const fetchedUsers = await userService.index();
-        console.log(fetchedUsers);
       } catch (err) {
         console.log(err)
       }
@@ -43,8 +42,42 @@ const Motivation = (props) => {
                 <p>
                   {`${goal.author.username} posted on ${new Date(goal.createdAt).toLocaleDateString()}`}
                 </p>
+
                 <p>{goal.startingDetails}</p>
-                <p>{goal.picture}</p>
+                
+                {goal.information.length > 0 ? (() => {
+                  const latestUpdate = [...goal.information].sort(
+                    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                  )[0];
+                  return (
+                    <div key={latestUpdate._id}>
+                      <p>{latestUpdate.text}</p>
+                      <p>
+                        Update on{" "}
+                        {new Date(latestUpdate.createdAt).toLocaleDateString("en-GB")}
+                      </p>
+                    </div>
+                  );
+                })() : (
+                  <p>No Updates posted.</p>
+                )}
+
+                {goal.comments.length > 0 ? (() => {
+                  const latestComment = [...goal.comments].sort(
+                    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+                  )[0];
+                  return (
+                    <div key={latestComment._id}>
+                      <p>{latestComment.text}</p>
+                      <p>
+                        Comment on{" "}
+                        {new Date(latestComment.createdAt).toLocaleDateString("en-GB")}
+                      </p>
+                    </div>
+                  );
+                })() : (
+                  <p>No comments posted.</p>
+                )}
               </header>
             </article>
           </Link>

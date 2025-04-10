@@ -9,7 +9,7 @@ const CommentForm = (props) => {
   const [formData, setFormData] = useState({ text: '' });
   const { goalId, commentId } = useParams();
   const navigate = useNavigate();
-  
+
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
   };
@@ -25,7 +25,6 @@ const CommentForm = (props) => {
     setFormData({ text: '' });
   };
 
-  
   useEffect(() => {
     const fetchGoal = async () => {
       const goalData = await goalService.show(goalId);
@@ -34,25 +33,25 @@ const CommentForm = (props) => {
     if (goalId && commentId) fetchGoal();
   }, [goalId, commentId]);
 
-  
-    if (goalId && commentId) return (
-      <main className={styles.container}>
-       <form onSubmit={handleSubmit}>
-      <label htmlFor='text-input'>Your comment:</label>
-      <textarea
-        required
-        type='text'
-        name='text'
-        id='text-input'
-        value={formData.text}
-        onChange={handleChange}
-      />
-      <button type='submit'>Send Motivation!</button>
-    </form>
-      </main>
-    );
 
-    return (
+  if (goalId && commentId) return (
+    <main className={styles.container}>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor='text-input'>Your comment:</label>
+        <textarea
+          required
+          type='text'
+          name='text'
+          id='text-input'
+          value={formData.text}
+          onChange={handleChange}
+        />
+        <button type='submit'>Send Motivation!</button>
+      </form>
+    </main>
+  );
+
+  return (
     <form onSubmit={handleSubmit}>
       <label htmlFor='text-input'>Your comment:</label>
       <textarea

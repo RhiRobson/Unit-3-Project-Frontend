@@ -23,7 +23,7 @@ const App = () => {
 
   const handleDeleteGoal = async (goalId) => {
     const confirmDelete = window.confirm("Are you sure you want to delete this goal?");
-    
+
     if (confirmDelete) {
       const deletedGoal = await goalService.deleteGoal(goalId);
       setGoals(goals.filter((goal) => goal._id !== goalId));
@@ -53,24 +53,24 @@ const App = () => {
 
   return (
     <>
-    <NavBar />
-    <Routes>
-      <Route path='/' element={user ? <Motivation goals={goals}/> : <Landing /> } />
-      {user ? (
+      <NavBar />
+      <Routes>
+        <Route path='/' element={<Landing />} />
+        {user ? (
           <>
-            <Route path='/goals' element={<GoalList goals={goals}/>} />
-            <Route 
+            <Route path='/goals' element={<GoalList goals={goals} />} />
+            <Route
               path='/goals/:goalId'
-              element={<GoalDetails handleDeleteGoal={handleDeleteGoal} />}/>
-            <Route 
-              path='/goals/new' 
-              element={<GoalForm handleAddGoal={handleAddGoal} />}/>
+              element={<GoalDetails handleDeleteGoal={handleDeleteGoal} />} />
+            <Route
+              path='/goals/new'
+              element={<GoalForm handleAddGoal={handleAddGoal} />} />
             <Route
               path='/goals/:goalId/edit'
-              element={<GoalForm handleUpdateGoal={handleUpdateGoal}/>}/>
+              element={<GoalForm handleUpdateGoal={handleUpdateGoal} />} />
             <Route
               path='/goals/:goalId/comments/:commentId/edit'
-              element={<CommentForm />}/>
+              element={<CommentForm />} />
           </>
         ) : (
           <>

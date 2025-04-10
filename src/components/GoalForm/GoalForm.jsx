@@ -36,7 +36,7 @@ const GoalForm = (props) => {
 
   return (
     <main className={styles.container}>
-       <h1>{goalId ? 'Edit Goal' : 'New Goal'}</h1>
+      <h1>{goalId ? 'Edit Goal' : 'New Goal'}</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor='title-input'>Give your goal a name, stay accountable.</label>
         <input
@@ -63,7 +63,7 @@ const GoalForm = (props) => {
           id='picture-input'
           value={formData.picture}
           onChange={handleChange}
-          />
+        />
         <button type='submit'>SUBMIT</button>
       </form>
     </main>

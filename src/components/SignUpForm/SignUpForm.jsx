@@ -32,7 +32,7 @@ const SignUpForm = () => {
     } catch (err) {
       setMessage(err.message);
     }
-    };
+  };
 
   const isFormInvalid = () => {
     return !(username && password && password === passwordConf);
@@ -41,50 +41,50 @@ const SignUpForm = () => {
   return (
     <main className={styles.container}>
       <section>
-      <img src={Logo} alt='Go Getters Logo' />
+        <img src={Logo} alt='Go Getters Logo' />
       </section>
       <section>
-      <h1>Sign Up</h1>
-      <p>{message}</p>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='username'>Username:</label>
-          <input
-            type='text'
-            id='name'
-            value={username}
-            name='username'
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            id='password'
-            value={password}
-            name='password'
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor='confirm'>Confirm Password:</label>
-          <input
-            type='password'
-            id='confirm'
-            value={passwordConf}
-            name='passwordConf'
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
-        </div>
-      </form>
+        <h1>Sign Up</h1>
+        <p>{message}</p>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor='username'>Username:</label>
+            <input
+              type='text'
+              id='name'
+              value={username}
+              name='username'
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor='password'>Password:</label>
+            <input
+              type='password'
+              id='password'
+              value={password}
+              name='password'
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor='confirm'>Confirm Password:</label>
+            <input
+              type='password'
+              id='confirm'
+              value={passwordConf}
+              name='passwordConf'
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <button disabled={isFormInvalid()}>Sign Up</button>
+            <button onClick={() => navigate('/')}>Cancel</button>
+          </div>
+        </form>
       </section>
     </main>
   );
