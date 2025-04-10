@@ -16,7 +16,7 @@ const NavBar = () => {
     setUser(null);
   };
 
-  console.log("Div open?", divOpen);
+  //console.log("Div open?", divOpen);
 
   return (
     <nav className={styles.container}>

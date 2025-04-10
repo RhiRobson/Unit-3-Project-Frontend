@@ -26,11 +26,10 @@ const GoalList = (props) => {
   return <main className={styles.container}>
     <div>
     <h1>Welcome, {user.username}</h1>
-    <br />
     <h3>
-      This is where you can see all of your goals and the goals of other users.
+      Here’s where your goals, and the goals of others, come to life. Celebrate wins, spark motivation, and lift each other up through your comments.
       <br />
-      Use the comments to help build the community and push others to get their goals!
+      Don’t just dream it, get it!
     </h3>
     </div>
     {props.goals.map((goal) => (

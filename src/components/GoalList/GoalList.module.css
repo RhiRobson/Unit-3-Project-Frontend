@@ -1,5 +1,3 @@
-/* List styling */
-
 .container {
   color: #0c0a4d;
   gap: 14px;
@@ -8,8 +6,6 @@
   padding: 21px;
   grid-template-columns: repeat(1, 1fr);
 }
-
-/* Media queries */
 
 @media only screen and (min-width: 900px) {
   .container {
@@ -28,8 +24,6 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
-/* Goal card styling */
 
 .container article {
   width: 100%;
@@ -67,7 +61,7 @@
   line-height: 1.5rem;
   display: -webkit-box;
   text-align: justify;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   word-break: break-word;
   text-align-last: left;
   -webkit-box-orient: vertical;

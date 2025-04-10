@@ -26,11 +26,10 @@ const Motivation = (props) => {
     <main className={styles.container}>
       <div>
       <h1>Welcome, {user.username}</h1>
-      <br />
       <h3>
-        This is your Motivational Wall where you can see all of your goals.
-        <br />
-        Use the comments to help build the community and push yourself!
+      Welcome to your Motivational Wall — a space to visualize your goals and ignite your drive. Share encouragement, celebrate progress, and grow together. 
+      <br />
+      Let this wall be your daily reminder: you’re not alone, Go Get It!
       </h3>
       </div>
       {props.goals

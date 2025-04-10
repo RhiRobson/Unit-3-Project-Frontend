@@ -56,7 +56,7 @@ const GoalForm = (props) => {
           value={formData.startingDetails}
           onChange={handleChange}
         />
-        <label htmlFor='picture-input'>Upload a picture if you wish, it can help you to progress with your goal.</label>
+        <label htmlFor='picture-input'>Upload a picture unavailable at present - thank you for your patience.</label>
         <input
           type='text'
           name='picture'
