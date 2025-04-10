@@ -11,15 +11,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #eeeff4;
-  background-image: radial-gradient(#babac5 1.1px, transparent 1.1px), radial-gradient(#babac5 1.1px, #e8e9f4 1.1px);
-  background-size: 44px 44px;
-  background-position: 0 0, 22px 22px;
+  background-color: #e8e9f4;
+  background-image: radial-gradient(#312e81 1.2000000000000002px, transparent 1.2000000000000002px), radial-gradient(#312e81 1.2000000000000002px, #e8e9f4 1.2000000000000002px);
+  background-size: 48px 48px;
+  background-position: 0 0, 24px 24px;
   --primary: #1e1e2f;
   --background: #f2f4f8;
   --card-background: white;
   --border: rgb(220, 220, 220);
 }
+
+
+
 
 #root {
   height: 100%;

@@ -16,7 +16,7 @@ const NavBar = () => {
     setUser(null);
   };
 
-  //console.log("Div open?", divOpen);
+  console.log("Div open?", divOpen);
 
   return (
     <nav className={styles.container}>
@@ -32,7 +32,7 @@ const NavBar = () => {
             <span></span>
           </div>
           
-          <ul className={divOpen ? "open" : ""}>
+          <ul className={divOpen ? styles.open : ""}>
             <li>{user.username}</li>
             <li><Link to='/'>My Motivation</Link></li>
             <li><Link to='/goals'>View All Goals</Link></li>

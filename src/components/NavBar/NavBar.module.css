@@ -51,7 +51,15 @@
   width: 100%;
   background-color: #f97316;
   border-radius: 0.2rem;
+}
 
+.open {
+  display: flex !important; 
+  background-color: #312e81b4;
+}
+
+.open :hover {
+  color: #f97316;
 }
 
 @media only screen and (max-width: 530px) {
@@ -64,10 +72,6 @@
     flex-direction: column;
     align-items: start;
     background-color: #312e81;
-  }
-
-  .container div.open {
-    display: flex;
   }
 
   .container ul {
