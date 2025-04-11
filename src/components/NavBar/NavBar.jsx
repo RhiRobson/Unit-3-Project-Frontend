@@ -50,7 +50,7 @@ const NavBar = () => {
             <span></span>
             <span></span>
           </div>
-        <ul>
+          <ul className={divOpen ? styles.open : ""}>
           <li><Link to='/sign-in'>Sign In</Link></li>
           <li><Link to='/sign-up'>Sign Up</Link></li>
         </ul>
