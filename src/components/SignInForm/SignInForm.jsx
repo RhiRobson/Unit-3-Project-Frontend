@@ -38,9 +38,11 @@ const SignInForm = () => {
         <img src={Logo} alt='Go Getters Logo' />
       </section>
       <section>
-        <h1>Sign In</h1>
-        <p>{message}</p>
+
         <form autoComplete='off' onSubmit={handleSubmit}>
+          <h1>Sign In</h1>
+          <p>{message}</p>
+
           <div>
             <label htmlFor='email'>Username:</label>
             <input
