@@ -7,7 +7,7 @@ App description: The app provides a secure site where the user can log into thei
 
 Reason for app: I have recently started CrossFit and I have found the commmunity really encouraging, I felt that having a dedicated goal app, rather than traditional social media would be an interesting option for embracing the motivation, without having the distraction of other feeds and stories, would be helpful.
 
-Link to Planning Doc: https://trello.com/b/onkcgs6H/ga-project-3-planning-motivational-fitness-app
+Link to Planning Doc: https://trello.com/b/onkcgs6H/ga-project-3-planning-motivational-fitness-app <br /
 Link to BackEnd: https://github.com/RhiRobson/Unit-3-Project-backend/blob/main/README.md
 Link to deployed app: Link to planning materials:
 
