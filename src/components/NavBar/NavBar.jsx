@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import styles from './NavBar.module.css';
-import Star from '../../../images/star.png';
+import Star from '../../../images/Star.png';
 
 
 import { UserContext } from '../../contexts/UserContext';
