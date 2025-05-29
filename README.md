@@ -17,6 +17,7 @@ Notes from the GA unit 3 course were vital in building the app (https://generala
 https://stackoverflow.com/ I used stack overflow to research how to add the images via URL. <br>
 https://canva.com to design the logo and edit the packgrounds for the different pages. <br>
 https://youtube.com tutorials to help with the media formatting burger menu.  <br>
+https://www.magicpattern.design/tools/css-backgrounds CSS code for page packground <br>
 https://cloudinary.com tutorials and videos for image uploading - I didnt end up using this method, but I would if I created a user picture uploader, in my next steps. <br>
 Technologies used: JavaScript, Express, Mongoose, MongoDB Atlas, Postman, CSS <br>
 
