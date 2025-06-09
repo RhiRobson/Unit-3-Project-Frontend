@@ -9,7 +9,7 @@ Reason for app: I have recently started CrossFit and I have found the commmunity
 
 Link to Planning Doc: https://trello.com/b/onkcgs6H/ga-project-3-planning-motivational-fitness-app <br>
 Link to BackEnd: https://github.com/RhiRobson/Unit-3-Project-backend/blob/main/README.md  <br>
-Link to deployed app: Coming Soon! <br>
+Link to deployed app: (https://go-getters-app.netlify.app/) <br>
 
 Attributions:
 
